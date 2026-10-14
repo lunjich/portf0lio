@@ -1,34 +1,68 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#100b1c">
-    <meta name="description" content="Ulunji Chandipo's portfolio — Software Engineering student exploring software development, business analytics, and technology.">
+    <meta name="theme-color" content="#FFF7E6">
+    <meta name="description" content="Ulunji Chandipo's portfolio — Software Engineering, business analytics, and technology.">
     <title>Ulunji Chandipo | Portfolio</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg: #100b1c;
-            --bg-soft: #171024;
-            --panel: rgba(255, 255, 255, 0.045);
-            --panel-hover: rgba(255, 255, 255, 0.075);
-            --border: rgba(230, 208, 255, 0.14);
-            --text: #f5effa;
-            --muted: #b5a8c4;
-            --accent: #d8a6ff;
-            --accent-2: #f1a5dc;
-            --accent-dark: #8b5eb5;
+            color-scheme: light;
+
+            --cream: #FFF7E6;
+            --pink: #F7C8D3;
+            --rosewood: #B46A72;
+            --sage: #A8B58A;
+            --sky: #A9B7C6;
+            --lagoon: #2D3A47;
+
+            --bg: var(--cream);
+            --bg-secondary: #FFFDF7;
+            --text: var(--lagoon);
+            --muted: #6F7474;
+            --accent: var(--rosewood);
+            --accent-soft: var(--pink);
+            --green: #74845A;
+            --panel: rgba(255, 255, 255, 0.58);
+            --panel-solid: #FFFCF4;
+            --border: rgba(45, 58, 71, 0.13);
+            --shadow: rgba(71, 57, 51, 0.07);
+            --tag-bg: rgba(168, 181, 138, 0.20);
+            --tag-text: #52613F;
+            --header-bg: rgba(255, 247, 230, 0.88);
+
             --sans: "Josefin Sans", sans-serif;
             --serif: "The Seasons", "Playfair Display", Georgia, serif;
-            --mono: "Josefin Sans", sans-serif;
-            --radius: 22px;
+            --script: "Caveat", cursive;
+
             --max-width: 1160px;
+            --radius: 22px;
+        }
+
+        html[data-theme="dark"] {
+            color-scheme: dark;
+
+            --bg: #2D3A47;
+            --bg-secondary: #354451;
+            --text: #FFF7E6;
+            --muted: #D0D0C8;
+            --accent: #F0AEBE;
+            --accent-soft: #684651;
+            --green: #C2D09F;
+            --panel: rgba(255, 247, 230, 0.055);
+            --panel-solid: #354451;
+            --border: rgba(255, 247, 230, 0.15);
+            --shadow: rgba(0, 0, 0, 0.15);
+            --tag-bg: rgba(168, 181, 138, 0.15);
+            --tag-text: #D6E3B8;
+            --header-bg: rgba(45, 58, 71, 0.90);
         }
 
         *,
@@ -45,16 +79,15 @@
         body {
             margin: 0;
             min-height: 100vh;
-            background:
-                radial-gradient(ellipse at 12% 5%, rgba(123, 67, 171, 0.18), transparent 34%),
-                radial-gradient(ellipse at 90% 30%, rgba(190, 91, 163, 0.10), transparent 32%),
-                var(--bg);
+            overflow-x: hidden;
+            background: var(--bg);
             color: var(--text);
             font-family: var(--sans);
+            font-size: 16px;
             font-weight: 400;
             letter-spacing: 0.01em;
-            line-height: 1.7;
-            overflow-x: hidden;
+            line-height: 1.75;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         a {
@@ -62,48 +95,19 @@
             text-decoration: none;
         }
 
-        button,
-        a {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        button,
-        input {
-            font: inherit;
-        }
-
         a:focus-visible,
         button:focus-visible {
             outline: 2px solid var(--accent);
-            outline-offset: 5px;
+            outline-offset: 4px;
         }
 
         ::selection {
-            color: var(--bg);
-            background: var(--accent);
+            color: var(--lagoon);
+            background: var(--pink);
         }
 
-        .ambient {
-            position: fixed;
-            z-index: -1;
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            filter: blur(110px);
-            opacity: 0.12;
-            pointer-events: none;
-        }
-
-        .ambient-one {
-            top: 15%;
-            left: -180px;
-            background: #a855f7;
-        }
-
-        .ambient-two {
-            top: 60%;
-            right: -190px;
-            background: #ec4899;
+        button {
+            font: inherit;
         }
 
         .container {
@@ -115,15 +119,15 @@
             position: sticky;
             z-index: 10;
             top: 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-            background: rgba(16, 11, 28, 0.82);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            background: var(--header-bg);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
         }
 
         .nav {
-            min-height: 76px;
             display: flex;
+            min-height: 78px;
             align-items: center;
             justify-content: space-between;
             gap: 24px;
@@ -131,9 +135,9 @@
 
         .brand {
             font-family: var(--serif);
-            font-size: 1.25rem;
-            font-weight: 600;
-            letter-spacing: -0.035em;
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: -0.04em;
             white-space: nowrap;
         }
 
@@ -144,17 +148,17 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 27px;
+            gap: 25px;
         }
 
         .nav-links a {
             color: var(--muted);
-            font-size: 0.84rem;
+            font-size: 0.82rem;
             transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
-            color: var(--text);
+            color: var(--accent);
         }
 
         .nav-links .nav-cv {
@@ -164,37 +168,43 @@
             color: var(--text);
         }
 
-        .nav-links .nav-cv:hover {
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            padding: 9px 13px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: var(--panel);
+            color: var(--text);
+            cursor: pointer;
+            font-size: 0.78rem;
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .theme-toggle:hover {
             border-color: var(--accent);
-            color: var(--accent);
+            background: var(--panel-solid);
         }
 
         .hero {
             display: grid;
+            min-height: 650px;
             grid-template-columns: 1.35fr 0.75fr;
             align-items: center;
             gap: 68px;
-            min-height: 650px;
-            padding-block: 94px 100px;
+            padding-block: 90px 100px;
         }
 
         .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin: 0 0 25px;
+            display: inline-block;
+            margin: 0 0 24px;
             color: var(--accent);
-            font-size: 0.78rem;
+            font-family: var(--script);
+            font-size: 1.65rem;
             font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-        }
-
-        .eyebrow::before {
-            width: 26px;
-            height: 1px;
-            background: var(--accent);
-            content: "";
+            line-height: 1.2;
         }
 
         h1,
@@ -216,12 +226,12 @@
 
         .hero h1 {
             max-width: 750px;
-            margin-bottom: 24px;
-            font-size: clamp(3.4rem, 7.5vw, 6.5rem);
-            line-height: 0.99;
+            margin-bottom: 25px;
+            font-size: clamp(3.5rem, 7.5vw, 6.5rem);
+            line-height: 1.02;
         }
 
-        .hero h1 .highlight {
+        .highlight {
             color: var(--accent);
             font-style: italic;
         }
@@ -230,14 +240,13 @@
             max-width: 570px;
             margin-bottom: 32px;
             color: var(--muted);
-            font-size: 1.03rem;
-            line-height: 1.9;
+            font-size: 1rem;
+            line-height: 1.95;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
             gap: 13px;
         }
 
@@ -246,16 +255,13 @@
             min-height: 47px;
             align-items: center;
             justify-content: center;
-            gap: 9px;
+            gap: 8px;
             padding: 12px 20px;
             border: 1px solid transparent;
             border-radius: 999px;
-            font-size: 0.85rem;
+            font-size: 0.84rem;
             font-weight: 600;
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease,
-                border-color 0.2s ease;
+            transition: transform 0.2s ease, background 0.2s ease;
         }
 
         .button:hover {
@@ -263,17 +269,18 @@
         }
 
         .button-primary {
-            background: var(--accent);
-            color: #1b1027;
+            background: var(--rosewood);
+            color: #FFFFFF;
         }
 
-        .button-primary:hover {
-            background: #e7c6ff;
+        html[data-theme="dark"] .button-primary {
+            background: var(--pink);
+            color: var(--lagoon);
         }
 
         .button-secondary {
             border-color: var(--border);
-            background: rgba(255, 255, 255, 0.025);
+            background: var(--panel);
             color: var(--text);
         }
 
@@ -281,10 +288,11 @@
             border-color: var(--accent);
         }
 
-        .hero-note {
-            margin-top: 27px;
-            color: #9c8eac;
-            font-size: 0.8rem;
+        .tiny-note {
+            margin-top: 25px;
+            color: var(--muted);
+            font-family: var(--script);
+            font-size: 1.25rem;
         }
 
         .profile-card {
@@ -293,49 +301,80 @@
             overflow: hidden;
             border: 1px solid var(--border);
             border-radius: 28px;
-            background: linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.02));
-            box-shadow: 0 25px 90px rgba(0, 0, 0, 0.18);
+            background: var(--panel);
+            box-shadow: 0 18px 55px var(--shadow);
         }
 
         .profile-card::before {
             position: absolute;
-            top: -90px;
-            right: -80px;
-            width: 220px;
-            height: 220px;
+            top: -75px;
+            right: -70px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            background: rgba(192, 132, 252, 0.15);
-            filter: blur(45px);
+            background: var(--pink);
+            filter: blur(75px);
+            opacity: 0.55;
             content: "";
             pointer-events: none;
+        }
+
+        html[data-theme="dark"] .profile-card::before {
+            opacity: 0.15;
         }
 
         .profile-top {
             display: flex;
             align-items: center;
             gap: 17px;
-            margin-bottom: 27px;
+            margin-bottom: 26px;
         }
 
         .avatar {
-            width: 82px;
-            height: 82px;
+            width: 80px;
+            height: 80px;
             flex-shrink: 0;
-            border: 2px solid rgba(216, 166, 255, 0.55);
+            border: 3px solid var(--pink);
             border-radius: 50%;
+            background: var(--bg-secondary);
             object-fit: cover;
-            background: var(--bg-soft);
         }
 
         .profile-name {
-            margin-bottom: 4px;
-            font-size: 1.5rem;
+            margin-bottom: 3px;
+            font-size: 1.45rem;
         }
 
         .profile-role {
-            margin: 0;
+            margin-bottom: 0;
             color: var(--muted);
-            font-size: 0.8rem;
+            font-size: 0.78rem;
+        }
+
+        .panel-label,
+        .card-number,
+        .project-type,
+        .tag,
+        .experience-date,
+        .section-kicker,
+        .focus-index {
+            font-family: var(--script);
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .panel-label {
+            margin-bottom: 10px;
+            color: var(--green);
+            font-size: 1.35rem;
+        }
+
+        .profile-bio {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 0.88rem;
+            line-height: 1.9;
         }
 
         .profile-divider {
@@ -344,32 +383,16 @@
             background: var(--border);
         }
 
-        .panel-label {
-            margin-bottom: 12px;
-            color: var(--accent);
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.13em;
-            text-transform: uppercase;
-        }
-
-        .profile-bio {
-            margin-bottom: 0;
-            color: var(--muted);
-            font-size: 0.9rem;
-            line-height: 1.85;
-        }
-
         .profile-details {
             display: grid;
-            gap: 13px;
+            gap: 12px;
         }
 
         .detail-row {
             display: flex;
             justify-content: space-between;
-            gap: 16px;
-            font-size: 0.82rem;
+            gap: 15px;
+            font-size: 0.79rem;
         }
 
         .detail-row span:first-child {
@@ -378,20 +401,6 @@
 
         .detail-row span:last-child {
             text-align: right;
-        }
-
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .status::before {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #a6e3a1;
-            content: "";
         }
 
         .section {
@@ -407,26 +416,23 @@
         }
 
         .section-kicker {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: var(--accent);
-            font-size: 0.74rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
+            font-size: 1.4rem;
         }
 
         .section-heading h2 {
             margin-bottom: 0;
-            font-size: clamp(2.4rem, 5vw, 4rem);
-            line-height: 1.1;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.12;
         }
 
         .section-intro {
             max-width: 430px;
             margin-bottom: 4px;
             color: var(--muted);
-            font-size: 0.92rem;
-            line-height: 1.85;
+            font-size: 0.9rem;
+            line-height: 1.9;
         }
 
         .projects-grid {
@@ -437,22 +443,19 @@
 
         .project-card {
             display: flex;
-            min-height: 300px;
+            min-height: 310px;
             flex-direction: column;
             padding: 25px;
             border: 1px solid var(--border);
             border-radius: var(--radius);
             background: var(--panel);
-            transition:
-                transform 0.25s ease,
-                border-color 0.25s ease,
-                background 0.25s ease;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: transform 0.25s ease, border-color 0.25s ease;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(216, 166, 255, 0.4);
-            background: var(--panel-hover);
+            border-color: var(--accent);
         }
 
         .project-card-top {
@@ -460,36 +463,37 @@
             align-items: center;
             justify-content: space-between;
             gap: 12px;
-            margin-bottom: 27px;
+            margin-bottom: 25px;
         }
 
         .project-icon {
             display: grid;
-            width: 43px;
-            height: 43px;
+            width: 44px;
+            height: 44px;
             place-items: center;
-            border: 1px solid var(--border);
-            border-radius: 13px;
+            border-radius: 15px;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            font-family: var(--serif);
+            font-size: 1.35rem;
+        }
+
+        .card-number {
             color: var(--accent);
             font-size: 1.15rem;
         }
 
-        .project-number {
-            color: #897b99;
-            font-size: 0.75rem;
-        }
-
         .project-card h3 {
             margin-bottom: 10px;
-            font-size: 1.5rem;
+            font-size: 1.55rem;
             line-height: 1.25;
         }
 
         .project-card p {
             margin-bottom: 20px;
             color: var(--muted);
-            font-size: 0.86rem;
-            line-height: 1.8;
+            font-size: 0.85rem;
+            line-height: 1.85;
         }
 
         .tags {
@@ -501,26 +505,27 @@
         }
 
         .tag {
-            padding: 5px 9px;
-            border: 1px solid rgba(216, 166, 255, 0.16);
+            padding: 4px 10px;
+            border: 1px solid var(--border);
             border-radius: 999px;
-            background: rgba(216, 166, 255, 0.055);
-            color: #c9b7da;
-            font-size: 0.69rem;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            font-size: 1rem;
         }
 
         .project-link {
             display: inline-flex;
+            width: fit-content;
             align-items: center;
             gap: 7px;
-            width: fit-content;
             color: var(--accent);
             font-size: 0.82rem;
             font-weight: 600;
         }
 
         .project-link:hover {
-            color: #f0d7ff;
+            text-decoration: underline;
+            text-underline-offset: 4px;
         }
 
         .focus-grid {
@@ -530,47 +535,47 @@
         }
 
         .focus-card {
-            padding: 27px;
+            padding: 28px;
             border: 1px solid var(--border);
             border-radius: var(--radius);
             background: var(--panel);
         }
 
         .focus-index {
-            display: inline-block;
-            margin-bottom: 21px;
-            color: var(--accent);
-            font-size: 0.78rem;
+            display: block;
+            margin-bottom: 20px;
+            color: var(--green);
+            font-size: 1.3rem;
         }
 
         .focus-card h3 {
             margin-bottom: 10px;
-            font-size: 1.45rem;
+            font-size: 1.5rem;
         }
 
         .focus-card p {
             margin-bottom: 0;
             color: var(--muted);
-            font-size: 0.86rem;
-            line-height: 1.85;
+            font-size: 0.85rem;
+            line-height: 1.9;
         }
 
         .about-grid {
             display: grid;
             grid-template-columns: 0.85fr 1.15fr;
-            gap: 60px;
             align-items: start;
+            gap: 60px;
         }
 
         .about-copy h2 {
             margin-bottom: 22px;
-            font-size: clamp(2.5rem, 5vw, 4.2rem);
-            line-height: 1.08;
+            font-size: clamp(2.6rem, 5vw, 4.2rem);
+            line-height: 1.12;
         }
 
         .about-copy p {
             color: var(--muted);
-            font-size: 0.94rem;
+            font-size: 0.92rem;
             line-height: 1.95;
         }
 
@@ -592,8 +597,9 @@
 
         .info-panel h3 {
             margin-bottom: 18px;
-            font-size: 1rem;
-            font-weight: 600;
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 500;
         }
 
         .skill-group + .skill-group {
@@ -603,7 +609,7 @@
         .skill-group h4 {
             margin: 0 0 10px;
             color: var(--muted);
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             font-weight: 500;
         }
 
@@ -616,50 +622,51 @@
         .skill-list span {
             padding: 7px 10px;
             border: 1px solid var(--border);
-            border-radius: 8px;
-            color: #e6dced;
-            font-size: 0.77rem;
+            border-radius: 9px;
+            background: var(--bg-secondary);
+            color: var(--text);
+            font-size: 0.76rem;
         }
 
         .timeline-item {
             position: relative;
             padding-left: 22px;
-            border-left: 1px solid rgba(216, 166, 255, 0.35);
+            border-left: 1px solid var(--green);
         }
 
         .timeline-item + .timeline-item {
-            margin-top: 24px;
+            margin-top: 25px;
         }
 
         .timeline-item::before {
             position: absolute;
-            top: 7px;
+            top: 8px;
             left: -5px;
             width: 9px;
             height: 9px;
             border-radius: 50%;
-            background: var(--accent);
+            background: var(--green);
             content: "";
         }
 
         .timeline-item h4 {
             margin-bottom: 5px;
-            font-size: 0.94rem;
+            font-size: 0.9rem;
             font-weight: 600;
         }
 
-        .timeline-item .experience-date {
+        .experience-date {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 9px;
             color: var(--accent);
-            font-size: 0.73rem;
+            font-size: 1.1rem;
         }
 
         .timeline-item p {
             margin-bottom: 0;
             color: var(--muted);
-            font-size: 0.83rem;
-            line-height: 1.8;
+            font-size: 0.82rem;
+            line-height: 1.85;
         }
 
         .education-row {
@@ -671,19 +678,21 @@
 
         .education-row h4 {
             margin-bottom: 5px;
-            font-size: 0.94rem;
+            font-size: 0.9rem;
         }
 
         .education-row p {
             margin-bottom: 0;
             color: var(--muted);
-            font-size: 0.83rem;
+            font-size: 0.82rem;
         }
 
         .education-year {
             flex-shrink: 0;
             color: var(--accent);
-            font-size: 0.78rem;
+            font-family: var(--script);
+            font-size: 1.3rem;
+            font-weight: 600;
         }
 
         .contact-section {
@@ -691,33 +700,40 @@
         }
 
         .contact-card {
-            position: relative;
             padding: clamp(30px, 6vw, 65px);
             overflow: hidden;
             border: 1px solid var(--border);
             border-radius: 30px;
             background:
-                radial-gradient(ellipse at 100% 0%, rgba(190, 91, 163, 0.15), transparent 45%),
-                linear-gradient(135deg, rgba(216, 166, 255, 0.08), rgba(255, 255, 255, 0.025));
+                radial-gradient(ellipse at 0% 100%, rgba(168, 181, 138, 0.23), transparent 45%),
+                radial-gradient(ellipse at 100% 0%, rgba(247, 200, 211, 0.45), transparent 50%),
+                var(--panel);
             text-align: center;
         }
 
+        html[data-theme="dark"] .contact-card {
+            background:
+                radial-gradient(ellipse at 0% 100%, rgba(168, 181, 138, 0.12), transparent 45%),
+                radial-gradient(ellipse at 100% 0%, rgba(247, 200, 211, 0.12), transparent 50%),
+                var(--panel);
+        }
+
         .contact-card .eyebrow {
-            justify-content: center;
+            margin-bottom: 18px;
         }
 
         .contact-card h2 {
             max-width: 730px;
             margin: 0 auto 20px;
             font-size: clamp(2.7rem, 6vw, 5rem);
-            line-height: 1.08;
+            line-height: 1.12;
         }
 
         .contact-card > p {
             max-width: 550px;
             margin: 0 auto 29px;
             color: var(--muted);
-            font-size: 0.94rem;
+            font-size: 0.92rem;
             line-height: 1.9;
         }
 
@@ -732,11 +748,11 @@
             display: inline-block;
             margin-top: 22px;
             color: var(--accent);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .site-footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            border-top: 1px solid var(--border);
         }
 
         .footer-inner {
@@ -749,8 +765,8 @@
 
         .footer-inner p {
             margin: 0;
-            color: #988aa6;
-            font-size: 0.78rem;
+            color: var(--muted);
+            font-size: 0.76rem;
         }
 
         .footer-links {
@@ -772,8 +788,6 @@
             .hero {
                 grid-template-columns: 1fr 0.8fr;
                 gap: 35px;
-                min-height: auto;
-                padding-block: 85px;
             }
 
             .hero h1 {
@@ -791,25 +805,25 @@
 
         @media (max-width: 700px) {
             .container {
-                width: min(100% - 34px, var(--max-width));
+                width: min(calc(100% - 34px), var(--max-width));
             }
 
             .nav {
-                min-height: 68px;
+                min-height: 70px;
                 flex-wrap: wrap;
-                padding-block: 15px;
+                padding-block: 12px;
             }
 
             .brand {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
 
             .nav-links {
-                gap: 16px;
+                gap: 13px;
             }
 
             .nav-links a {
-                font-size: 0.75rem;
+                font-size: 0.74rem;
             }
 
             .nav-links a:nth-child(2),
@@ -817,19 +831,23 @@
                 display: none;
             }
 
+            .theme-toggle {
+                padding: 8px 10px;
+                font-size: 0.73rem;
+            }
+
             .hero {
                 grid-template-columns: 1fr;
                 gap: 38px;
-                padding-block: 70px 65px;
+                padding-block: 65px;
             }
 
             .hero h1 {
-                max-width: 600px;
-                font-size: clamp(3.4rem, 13vw, 5.3rem);
+                font-size: clamp(3.3rem, 13vw, 5.1rem);
             }
 
             .hero-description {
-                font-size: 0.96rem;
+                font-size: 0.94rem;
             }
 
             .profile-card {
@@ -848,7 +866,7 @@
             }
 
             .section-heading h2 {
-                font-size: clamp(2.6rem, 10vw, 3.5rem);
+                font-size: clamp(2.5rem, 10vw, 3.5rem);
             }
 
             .projects-grid,
@@ -857,7 +875,7 @@
             }
 
             .project-card {
-                min-height: 275px;
+                min-height: 285px;
             }
 
             .about-grid {
@@ -891,7 +909,7 @@
             }
 
             .nav-links {
-                gap: 10px;
+                gap: 9px;
             }
 
             .nav-links .nav-cv {
@@ -899,7 +917,7 @@
             }
 
             .hero h1 {
-                font-size: 3.15rem;
+                font-size: 3.05rem;
             }
 
             .profile-card,
@@ -910,7 +928,7 @@
             }
 
             .detail-row {
-                font-size: 0.75rem;
+                font-size: 0.74rem;
             }
         }
 
@@ -920,17 +938,12 @@
             *::after {
                 scroll-behavior: auto !important;
                 transition-duration: 0.01ms !important;
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="ambient ambient-one" aria-hidden="true"></div>
-    <div class="ambient ambient-two" aria-hidden="true"></div>
-
     <header class="site-header">
         <nav class="nav container" aria-label="Main navigation">
             <a class="brand" href="#home">Ulunji<span>.</span></a>
@@ -939,7 +952,12 @@
                 <a href="#projects">Projects</a>
                 <a href="#about">About</a>
                 <a href="#experience">Experience</a>
-                <a class="nav-cv" href="https://docs.google.com/document/u/0/d/1wUymt429q0q3QRHQf2ID2iVgRGKzdBt3h09xMNQNkRo/mobilebasic" target="_blank" rel="noopener noreferrer">View CV ↗</a>
+                <a class="nav-cv" href="https://docs.google.com/document/d/1wUymt429q0q3QRHQf2ID2iVgRGKzdBt3h09xMNQNkRo/mobilebasic" target="_blank" rel="noopener noreferrer">CV ↗</a>
+
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+                    <span id="themeIcon" aria-hidden="true">☾</span>
+                    <span id="themeLabel">Dark mode</span>
+                </button>
             </div>
         </nav>
     </header>
@@ -947,7 +965,7 @@
     <main>
         <section class="hero container" id="home">
             <div class="hero-content">
-                <p class="eyebrow">Software Engineering · Business Analytics</p>
+                <p class="eyebrow">A little bit of tech, a little bit of data</p>
 
                 <h1>Curious mind.<br><span class="highlight">Meaningful</span> solutions.</h1>
 
@@ -959,11 +977,11 @@
                 </p>
 
                 <div class="hero-actions">
-                    <a class="button button-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
-                    <a class="button button-secondary" href="https://docs.google.com/document/u/0/d/1wUymt429q0q3QRHQf2ID2iVgRGKzdBt3h09xMNQNkRo/mobilebasic" target="_blank" rel="noopener noreferrer">View my CV</a>
+                    <a class="button button-primary" href="#projects">Explore my work ↗</a>
+                    <a class="button button-secondary" href="https://docs.google.com/document/d/1wUymt429q0q3QRHQf2ID2iVgRGKzdBt3h09xMNQNkRo/mobilebasic" target="_blank" rel="noopener noreferrer">View my CV</a>
                 </div>
 
-                <p class="hero-note">Currently studying at Xiamen University Malaysia · Expected graduation 2028</p>
+                <p class="tiny-note">Software Engineering student · Class of 2028</p>
             </div>
 
             <aside class="profile-card" aria-label="Profile summary">
@@ -972,7 +990,6 @@
                         class="avatar"
                         src="https://avatars.githubusercontent.com/u/164751700?v=4"
                         alt="Ulunji's GitHub profile avatar"
-                        loading="lazy"
                     >
                     <div>
                         <h2 class="profile-name">Ulunji Chandipo</h2>
@@ -1013,20 +1030,20 @@
         <section class="section container" id="projects">
             <div class="section-heading">
                 <div>
-                    <p class="section-kicker">Selected work</p>
+                    <p class="section-kicker">Made with curiosity</p>
                     <h2>Things I've built.</h2>
                 </div>
                 <p class="section-intro">
-                    A collection of personal projects exploring software development,
-                    automation, information tracking, and practical problem-solving.
+                    Personal projects exploring software development, automation,
+                    information tracking, and practical problem-solving.
                 </p>
             </div>
 
             <div class="projects-grid">
                 <article class="project-card">
                     <div class="project-card-top">
-                        <span class="project-icon" aria-hidden="true">⌁</span>
-                        <span class="project-number">01 / DATA</span>
+                        <span class="project-icon" aria-hidden="true">~</span>
+                        <span class="card-number">01 / DATA</span>
                     </div>
                     <h3>Flood Tracker</h3>
                     <p>
@@ -1043,8 +1060,8 @@
 
                 <article class="project-card">
                     <div class="project-card-top">
-                        <span class="project-icon" aria-hidden="true">⌖</span>
-                        <span class="project-number">02 / MONITORING</span>
+                        <span class="project-icon" aria-hidden="true">+</span>
+                        <span class="card-number">02 / MONITORING</span>
                     </div>
                     <h3>Earthquake Alert Japan</h3>
                     <p>
@@ -1062,7 +1079,7 @@
                 <article class="project-card">
                     <div class="project-card-top">
                         <span class="project-icon" aria-hidden="true">✳</span>
-                        <span class="project-number">03 / DISCOVERY</span>
+                        <span class="card-number">03 / DISCOVERY</span>
                     </div>
                     <h3>Mood to Read</h3>
                     <p>
@@ -1079,8 +1096,8 @@
 
                 <article class="project-card">
                     <div class="project-card-top">
-                        <span class="project-icon" aria-hidden="true">⊘</span>
-                        <span class="project-number">04 / AUTOMATION</span>
+                        <span class="project-icon" aria-hidden="true">/</span>
+                        <span class="card-number">04 / AUTOMATION</span>
                     </div>
                     <h3>My DNS Ad Blocker</h3>
                     <p>
@@ -1097,8 +1114,8 @@
 
                 <article class="project-card">
                     <div class="project-card-top">
-                        <span class="project-icon" aria-hidden="true">◷</span>
-                        <span class="project-number">05 / PRODUCTIVITY</span>
+                        <span class="project-icon" aria-hidden="true">○</span>
+                        <span class="card-number">05 / PRODUCTIVITY</span>
                     </div>
                     <h3>What's Left</h3>
                     <p>
@@ -1106,8 +1123,8 @@
                         tasks and making outstanding responsibilities easier to see.
                     </p>
                     <div class="tags">
-                        <span class="tag">Software Development</span>
                         <span class="tag">Productivity</span>
+                        <span class="tag">Software Development</span>
                     </div>
                     <a class="project-link" href="https://github.com/lunjich/whatsleft" target="_blank" rel="noopener noreferrer">Explore repository ↗</a>
                 </article>
@@ -1115,7 +1132,7 @@
                 <article class="project-card">
                     <div class="project-card-top">
                         <span class="project-icon" aria-hidden="true">↗</span>
-                        <span class="project-number">06 / AUTOMATION</span>
+                        <span class="card-number">06 / AUTOMATION</span>
                     </div>
                     <h3>ReminderBot</h3>
                     <p>
@@ -1131,9 +1148,9 @@
                 </article>
             </div>
 
-            <p style="margin-top: 24px; color: var(--muted); font-size: 0.8rem;">
-                More projects and source code are available on
-                <a class="project-link" href="https://github.com/lunjich" target="_blank" rel="noopener noreferrer">GitHub ↗</a>.
+            <p class="tiny-note">
+                More experiments live on
+                <a class="project-link" href="https://github.com/lunjich" target="_blank" rel="noopener noreferrer">my GitHub ↗</a>.
             </p>
         </section>
 
@@ -1151,7 +1168,7 @@
 
             <div class="focus-grid">
                 <article class="focus-card">
-                    <span class="focus-index">01 — ANALYSE</span>
+                    <span class="focus-index">01 — Analyse</span>
                     <h3>Business Analytics</h3>
                     <p>
                         Learning how to turn data into useful insights, identify
@@ -1160,7 +1177,7 @@
                 </article>
 
                 <article class="focus-card">
-                    <span class="focus-index">02 — UNDERSTAND</span>
+                    <span class="focus-index">02 — Understand</span>
                     <h3>Requirements Analysis</h3>
                     <p>
                         Exploring how to understand stakeholder needs, document
@@ -1169,7 +1186,7 @@
                 </article>
 
                 <article class="focus-card">
-                    <span class="focus-index">03 — COLLABORATE</span>
+                    <span class="focus-index">03 — Collaborate</span>
                     <h3>Technology &amp; Teams</h3>
                     <p>
                         Interested in the coordination, communication, and teamwork
@@ -1184,23 +1201,27 @@
                 <div class="about-copy">
                     <p class="section-kicker">A bit more about me</p>
                     <h2>Technology is about more than code.</h2>
+
                     <p class="about-emphasis">
                         I'm studying Software Engineering at Xiamen University Malaysia
                         and building experience through personal projects and student
                         activities.
                     </p>
+
                     <p>
                         Alongside technical development, I'm interested in how people
                         define problems, communicate needs, organise work, and use
                         information. I'm particularly interested in growing toward
                         business analytics and business-facing ICT roles.
                     </p>
+
                     <p>
                         This portfolio is a work in progress, and so am I. I'm focused
                         on developing practical skills, learning consistently, and
                         building projects that demonstrate what I can do.
                     </p>
-                    <a class="button button-secondary" href="https://docs.google.com/document/u/0/d/1wUymt429q0q3QRHQf2ID2iVgRGKzdBt3h09xMNQNkRo/mobilebasic" target="_blank" rel="noopener noreferrer">Read my CV ↗</a>
+
+                    <a class="button button-secondary" href="https://docs.google.com/document/d/1wUymt429q0q3QRHQf2ID2iVgRGKzdBt3h09xMNQNkRo/mobilebasic" target="_blank" rel="noopener noreferrer">Read my CV ↗</a>
                 </div>
 
                 <div class="about-panels">
@@ -1285,6 +1306,7 @@
             <div class="contact-card">
                 <p class="eyebrow">Let's connect</p>
                 <h2>Have an idea or an opportunity?</h2>
+
                 <p>
                     I'm open to connecting with people in technology, business analytics,
                     and student communities. Feel free to reach out.
@@ -1303,7 +1325,7 @@
 
     <footer class="site-footer">
         <div class="footer-inner container">
-            <p>© <span id="year"></span> Ulunji Chandipo. Built with curiosity.</p>
+            <p>© <span id="year"></span> Ulunji Chandipo. Made with curiosity.</p>
 
             <div class="footer-links">
                 <a href="https://github.com/lunjich" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -1314,6 +1336,54 @@
     </footer>
 
     <script>
+        const root = document.documentElement;
+        const themeToggle = document.getElementById("themeToggle");
+        const themeLabel = document.getElementById("themeLabel");
+        const themeIcon = document.getElementById("themeIcon");
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+
+        function applyTheme(theme) {
+            root.setAttribute("data-theme", theme);
+
+            const isDark = theme === "dark";
+
+            themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
+            themeIcon.textContent = isDark ? "☀" : "☾";
+            themeToggle.setAttribute("aria-pressed", String(isDark));
+            themeToggle.setAttribute(
+                "aria-label",
+                isDark ? "Switch to light mode" : "Switch to dark mode"
+            );
+
+            themeColor.setAttribute(
+                "content",
+                isDark ? "#2D3A47" : "#FFF7E6"
+            );
+        }
+
+        let savedTheme = null;
+
+        try {
+            savedTheme = localStorage.getItem("portfolio-theme");
+        } catch (error) {
+            savedTheme = null;
+        }
+
+        applyTheme(savedTheme === "dark" ? "dark" : "light");
+
+        themeToggle.addEventListener("click", function () {
+            const nextTheme =
+                root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+
+            applyTheme(nextTheme);
+
+            try {
+                localStorage.setItem("portfolio-theme", nextTheme);
+            } catch (error) {
+                // Theme switching still works if storage is unavailable.
+            }
+        });
+
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 </body>

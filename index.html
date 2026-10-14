@@ -6,11 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#FFF7E6">
     <meta name="description" content="Ulunji Chandipo's portfolio — Software Engineering, business analytics, and technology.">
+
     <title>Ulunji Chandipo | Portfolio</title>
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Pink lowercase U favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23F7C8D3'/%3E%3Ctext x='31' y='47' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='47' fill='%232D3A47'%3Eu%3C/text%3E%3Ccircle cx='49' cy='15' r='5' fill='%23FFF7E6'/%3E%3C/svg%3E">
 
     <style>
         :root {
@@ -47,7 +55,7 @@
 
             --sans: "Josefin Sans", sans-serif;
             --serif: "Playfair Display", Georgia, serif;
-            --script: "Adobe Caslon Pro", "Adobe Caslon", "Baskerville", Georgia, serif;
+            --script: "Adobe Caslon Pro", "Adobe Caslon", Baskerville, Georgia, serif;
 
             --max-width: 1160px;
             --radius: 22px;
@@ -202,57 +210,12 @@
         }
 
         .theme-icon {
-            position: relative;
-            display: inline-block;
-            width: 16px;
-            height: 16px;
+            display: inline-grid;
+            width: 18px;
+            height: 18px;
             flex-shrink: 0;
-        }
-
-        .theme-icon::before,
-        .theme-icon::after {
-            position: absolute;
-            display: block;
-            content: "";
-        }
-
-        html[data-theme="light"] .theme-icon::before {
-            top: 1px;
-            left: 3px;
-            width: 12px;
-            height: 12px;
-            border: 1.5px solid var(--accent);
-            border-radius: 50%;
-        }
-
-        html[data-theme="light"] .theme-icon::after {
-            top: -1px;
-            left: 0;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--panel-solid);
-        }
-
-        html[data-theme="dark"] .theme-icon::before {
-            top: 3px;
-            left: 3px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--pink);
-        }
-
-        html[data-theme="dark"] .theme-icon::after {
-            top: 0;
-            left: 8px;
-            width: 2px;
-            height: 16px;
-            border-radius: 2px;
-            background: var(--pink);
-            box-shadow: -7px 7px 0 -0.2px var(--pink),
-                        7px 7px 0 -0.2px var(--pink);
-            transform: rotate(45deg);
+            place-items: center;
+            font-size: 1rem;
         }
 
         .hero {
@@ -276,18 +239,11 @@
             text-transform: lowercase;
         }
 
-        h1,
-        h2,
-        h3,
-        p {
+        h1, h2, h3, p {
             margin-top: 0;
         }
 
-        h1,
-        h2,
-        .project-card h3,
-        .focus-card h3,
-        .profile-name {
+        h1, h2, .project-card h3, .focus-card h3, .profile-name {
             font-family: var(--serif);
             font-weight: 500;
             letter-spacing: -0.035em;
@@ -416,7 +372,6 @@
 
         .panel-label,
         .card-number,
-        .project-type,
         .tag,
         .experience-date,
         .section-kicker,
@@ -533,60 +488,44 @@
 
         .project-icon {
             display: grid;
-            width: 44px;
-            height: 44px;
+            width: 46px;
+            height: 46px;
+            flex-shrink: 0;
             place-items: center;
             border: 1px solid var(--border);
             border-radius: 15px;
             background: var(--tag-bg);
             color: var(--tag-text);
+            font-size: 1.55rem;
         }
 
-        .project-icon::before {
-            display: block;
-            width: 12px;
-            height: 12px;
-            border: 2px solid currentColor;
-            border-radius: 4px;
-            content: "";
-            transform: rotate(45deg);
+        .project-icon i {
+            line-height: 1;
         }
 
-        .project-card:nth-child(2) .project-icon::before {
-            border-radius: 50%;
-            box-shadow: 0 0 0 3px var(--tag-bg), 0 0 0 4px currentColor;
+        .project-card:nth-child(2) .project-icon {
+            background: rgba(169, 183, 198, 0.24);
+            color: var(--blue);
         }
 
-        .project-card:nth-child(3) .project-icon::before {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            box-shadow: inset 0 0 0 3px var(--tag-bg);
+        .project-card:nth-child(3) .project-icon {
+            background: rgba(247, 200, 211, 0.32);
+            color: var(--rosewood);
         }
 
-        .project-card:nth-child(4) .project-icon::before {
-            width: 17px;
-            height: 2px;
-            border: none;
-            border-radius: 2px;
-            background: currentColor;
-            box-shadow: 0 -5px 0 currentColor, 0 5px 0 currentColor;
-            transform: rotate(-45deg);
+        .project-card:nth-child(4) .project-icon {
+            background: rgba(169, 183, 198, 0.24);
+            color: var(--blue);
         }
 
-        .project-card:nth-child(5) .project-icon::before {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            transform: none;
+        .project-card:nth-child(5) .project-icon {
+            background: rgba(168, 181, 138, 0.25);
+            color: var(--green);
         }
 
-        .project-card:nth-child(6) .project-icon::before {
-            width: 10px;
-            height: 10px;
-            border-width: 2px 2px 0 0;
-            border-radius: 0;
-            transform: rotate(45deg);
+        .project-card:nth-child(6) .project-icon {
+            background: rgba(247, 200, 211, 0.32);
+            color: var(--rosewood);
         }
 
         .card-number {
@@ -863,6 +802,10 @@
             gap: 12px;
         }
 
+        .contact-actions .button i {
+            font-size: 1.1rem;
+        }
+
         .contact-email {
             display: inline-block;
             margin-top: 22px;
@@ -895,12 +838,19 @@
         }
 
         .footer-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             color: var(--muted);
             font-size: 0.78rem;
         }
 
         .footer-links a:hover {
             color: var(--accent);
+        }
+
+        .footer-links i {
+            font-size: 1rem;
         }
 
         @media (max-width: 950px) {
@@ -1074,7 +1024,7 @@
                 <a class="nav-cv" href="https://docs.google.com/document/d/1wUymt429q0q3QRHQf2ID2iVgRGKzdBt3h09xMNQNkRo/mobilebasic" target="_blank" rel="noopener noreferrer">CV</a>
 
                 <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
-                    <span class="theme-icon" id="themeIcon" aria-hidden="true"></span>
+                    <i class="ph ph-moon theme-icon" id="themeIcon" aria-hidden="true"></i>
                     <span id="themeLabel">Dark mode</span>
                 </button>
             </div>
@@ -1105,11 +1055,7 @@
 
             <aside class="profile-card" aria-label="Profile summary">
                 <div class="profile-top">
-                    <img
-                        class="avatar"
-                        src="https://avatars.githubusercontent.com/u/164751700?v=4"
-                        alt="Ulunji's GitHub profile avatar"
-                    >
+                    <img class="avatar" src="https://avatars.githubusercontent.com/u/164751700?v=4" alt="Ulunji's GitHub profile avatar">
                     <div>
                         <h2 class="profile-name">Ulunji Chandipo</h2>
                         <p class="profile-role">Software Engineering Student</p>
@@ -1161,14 +1107,11 @@
             <div class="projects-grid">
                 <article class="project-card">
                     <div class="project-card-top">
-                        <span class="project-icon" aria-hidden="true"></span>
-                        <span class="card-number">01 / DATA</span>
+                        <span class="project-icon"><i class="ph ph-cloud-rain" aria-hidden="true"></i></span>
+                        <span class="card-number">01 / data</span>
                     </div>
                     <h3>Flood Tracker</h3>
-                    <p>
-                        A project exploring flood-related information and river
-                        conditions to make environmental data easier to understand.
-                    </p>
+                    <p>A project exploring flood-related information and river conditions to make environmental data easier to understand.</p>
                     <div class="tags">
                         <span class="tag">Python</span>
                         <span class="tag">APIs</span>
@@ -1179,14 +1122,11 @@
 
                 <article class="project-card">
                     <div class="project-card-top">
-                        <span class="project-icon" aria-hidden="true"></span>
-                        <span class="card-number">02 / MONITORING</span>
+                        <span class="project-icon"><i class="ph ph-wave-sine" aria-hidden="true"></i></span>
+                        <span class="card-number">02 / monitoring</span>
                     </div>
                     <h3>Earthquake Alert Japan</h3>
-                    <p>
-                        An earthquake-monitoring project using seismic data to help
-                        surface relevant earthquake events in a defined region.
-                    </p>
+                    <p>An earthquake-monitoring project using seismic data to help surface relevant earthquake events in a defined region.</p>
                     <div class="tags">
                         <span class="tag">Python</span>
                         <span class="tag">USGS API</span>
@@ -1197,14 +1137,11 @@
 
                 <article class="project-card">
                     <div class="project-card-top">
-                        <span class="project-icon" aria-hidden="true"></span>
-                        <span class="card-number">03 / DISCOVERY</span>
+                        <span class="project-icon"><i class="ph ph-book-open-text" aria-hidden="true"></i></span>
+                        <span class="card-number">03 / discovery</span>
                     </div>
                     <h3>Mood to Read</h3>
-                    <p>
-                        A reading-discovery project designed around finding books
-                        that match a reader's mood and preferences.
-                    </p>
+                    <p>A reading-discovery project designed around finding books that match a reader's mood and preferences.</p>
                     <div class="tags">
                         <span class="tag">Node.js</span>
                         <span class="tag">Express</span>
@@ -1215,14 +1152,11 @@
 
                 <article class="project-card">
                     <div class="project-card-top">
-                        <span class="project-icon" aria-hidden="true"></span>
-                        <span class="card-number">04 / AUTOMATION</span>
+                        <span class="project-icon"><i class="ph ph-shield-check" aria-hidden="true"></i></span>
+                        <span class="card-number">04 / automation</span>
                     </div>
                     <h3>My DNS Ad Blocker</h3>
-                    <p>
-                        A DNS-based blocking project exploring domain filtering and
-                        how network requests can be handled programmatically.
-                    </p>
+                    <p>A DNS-based blocking project exploring domain filtering and how network requests can be handled programmatically.</p>
                     <div class="tags">
                         <span class="tag">Node.js</span>
                         <span class="tag">DNS</span>
@@ -1233,14 +1167,11 @@
 
                 <article class="project-card">
                     <div class="project-card-top">
-                        <span class="project-icon" aria-hidden="true"></span>
-                        <span class="card-number">05 / PRODUCTIVITY</span>
+                        <span class="project-icon"><i class="ph ph-list-checks" aria-hidden="true"></i></span>
+                        <span class="card-number">05 / productivity</span>
                     </div>
                     <h3>What's Left</h3>
-                    <p>
-                        A personal productivity project focused on keeping track of
-                        tasks and making outstanding responsibilities easier to see.
-                    </p>
+                    <p>A personal productivity project focused on keeping track of tasks and making outstanding responsibilities easier to see.</p>
                     <div class="tags">
                         <span class="tag">Productivity</span>
                         <span class="tag">Software Development</span>
@@ -1250,14 +1181,11 @@
 
                 <article class="project-card">
                     <div class="project-card-top">
-                        <span class="project-icon" aria-hidden="true"></span>
-                        <span class="card-number">06 / AUTOMATION</span>
+                        <span class="project-icon"><i class="ph ph-bell-ringing" aria-hidden="true"></i></span>
+                        <span class="card-number">06 / automation</span>
                     </div>
                     <h3>ReminderBot</h3>
-                    <p>
-                        A reminder application exploring scheduled notifications,
-                        lightweight data storage, and messaging integrations.
-                    </p>
+                    <p>A reminder application exploring scheduled notifications, lightweight data storage, and messaging integrations.</p>
                     <div class="tags">
                         <span class="tag">Node.js</span>
                         <span class="tag">SQLite</span>
@@ -1287,30 +1215,21 @@
 
             <div class="focus-grid">
                 <article class="focus-card">
-                    <span class="focus-index">01 — Analyse</span>
-                    <h3>Business Analytics</h3>
-                    <p>
-                        Learning how to turn data into useful insights, identify
-                        patterns, and communicate findings that support better decisions.
-                    </p>
+                    <span class="focus-index">01 — analyse</span>
+                    <h3><i class="ph ph-chart-line-up" aria-hidden="true"></i> Business Analytics</h3>
+                    <p>Learning how to turn data into useful insights, identify patterns, and communicate findings that support better decisions.</p>
                 </article>
 
                 <article class="focus-card">
-                    <span class="focus-index">02 — Understand</span>
-                    <h3>Requirements Analysis</h3>
-                    <p>
-                        Exploring how to understand stakeholder needs, document
-                        requirements, and connect business problems with technical solutions.
-                    </p>
+                    <span class="focus-index">02 — understand</span>
+                    <h3><i class="ph ph-magnifying-glass" aria-hidden="true"></i> Requirements Analysis</h3>
+                    <p>Exploring how to understand stakeholder needs, document requirements, and connect business problems with technical solutions.</p>
                 </article>
 
                 <article class="focus-card">
-                    <span class="focus-index">03 — Collaborate</span>
-                    <h3>Technology &amp; Teams</h3>
-                    <p>
-                        Interested in the coordination, communication, and teamwork
-                        that help technology projects move from ideas to useful outcomes.
-                    </p>
+                    <span class="focus-index">03 — collaborate</span>
+                    <h3><i class="ph ph-users-three" aria-hidden="true"></i> Technology &amp; Teams</h3>
+                    <p>Interested in the coordination, communication, and teamwork that help technology projects move from ideas to useful outcomes.</p>
                 </article>
             </div>
         </section>
@@ -1391,19 +1310,13 @@
                         <div class="timeline-item">
                             <h4>Computer Technical Specialist</h4>
                             <span class="experience-date">December 2023 – July 2024</span>
-                            <p>
-                                Amara Pharmacy. Gained practical workplace experience in
-                                a computer-related support role.
-                            </p>
+                            <p>Amara Pharmacy. Gained practical workplace experience in a computer-related support role.</p>
                         </div>
 
                         <div class="timeline-item">
                             <h4>SDC Hackathon Committee</h4>
                             <span class="experience-date">Student involvement</span>
-                            <p>
-                                Contributed to student hackathon activities and the
-                                coordination involved in a technology-focused event.
-                            </p>
+                            <p>Contributed to student hackathon activities and the coordination involved in a technology-focused event.</p>
                         </div>
                     </div>
 
@@ -1432,9 +1345,15 @@
                 </p>
 
                 <div class="contact-actions">
-                    <a class="button button-primary" href="mailto:chandipolunji@gmail.com">Email me</a>
-                    <a class="button button-secondary" href="https://www.linkedin.com/in/ulunjichandipo/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a class="button button-secondary" href="https://github.com/lunjich" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a class="button button-primary" href="mailto:chandipolunji@gmail.com">
+                        <i class="ph ph-envelope-simple" aria-hidden="true"></i> Email me
+                    </a>
+                    <a class="button button-secondary" href="https://www.linkedin.com/in/ulunjichandipo/" target="_blank" rel="noopener noreferrer">
+                        <i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn
+                    </a>
+                    <a class="button button-secondary" href="https://github.com/lunjich" target="_blank" rel="noopener noreferrer">
+                        <i class="ph ph-github-logo" aria-hidden="true"></i> GitHub
+                    </a>
                 </div>
 
                 <a class="contact-email" href="mailto:chandipolunji@gmail.com">chandipolunji@gmail.com</a>
@@ -1447,9 +1366,15 @@
             <p>© <span id="year"></span> Ulunji Chandipo. Made with curiosity.</p>
 
             <div class="footer-links">
-                <a href="https://github.com/lunjich" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://www.linkedin.com/in/ulunjichandipo/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="mailto:chandipolunji@gmail.com">Email</a>
+                <a href="https://github.com/lunjich" target="_blank" rel="noopener noreferrer">
+                    <i class="ph ph-github-logo" aria-hidden="true"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/ulunjichandipo/" target="_blank" rel="noopener noreferrer">
+                    <i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn
+                </a>
+                <a href="mailto:chandipolunji@gmail.com">
+                    <i class="ph ph-envelope-simple" aria-hidden="true"></i> Email
+                </a>
             </div>
         </div>
     </footer>
@@ -1458,6 +1383,7 @@
         const root = document.documentElement;
         const themeToggle = document.getElementById("themeToggle");
         const themeLabel = document.getElementById("themeLabel");
+        const themeIcon = document.getElementById("themeIcon");
         const themeColor = document.querySelector('meta[name="theme-color"]');
 
         function applyTheme(theme) {
@@ -1466,6 +1392,10 @@
             const isDark = theme === "dark";
 
             themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
+            themeIcon.className = isDark
+                ? "ph ph-sun theme-icon"
+                : "ph ph-moon theme-icon";
+
             themeToggle.setAttribute("aria-pressed", String(isDark));
             themeToggle.setAttribute(
                 "aria-label",
@@ -1501,7 +1431,8 @@
             }
         });
 
-        document.getElementById("year").textContent = new Date().getFullYear();
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
     </script>
 </body>
 </html>

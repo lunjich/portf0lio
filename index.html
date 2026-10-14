@@ -10,7 +10,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -46,8 +46,8 @@
             --button-text: var(--white);
 
             --sans: "Josefin Sans", sans-serif;
-            --serif: "The Seasons", "Playfair Display", Georgia, serif;
-            --script: "Caveat", cursive;
+            --serif: "Playfair Display", Georgia, serif;
+            --script: "Pinyon Script", cursive;
 
             --max-width: 1160px;
             --radius: 22px;
@@ -185,7 +185,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 7px;
+            gap: 8px;
             padding: 9px 13px;
             border: 1px solid var(--border);
             border-radius: 999px;
@@ -199,6 +199,60 @@
         .theme-toggle:hover {
             border-color: var(--accent);
             background: var(--panel-solid);
+        }
+
+        .theme-icon {
+            position: relative;
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        .theme-icon::before,
+        .theme-icon::after {
+            position: absolute;
+            display: block;
+            content: "";
+        }
+
+        html[data-theme="light"] .theme-icon::before {
+            top: 1px;
+            left: 3px;
+            width: 12px;
+            height: 12px;
+            border: 1.5px solid var(--accent);
+            border-radius: 50%;
+        }
+
+        html[data-theme="light"] .theme-icon::after {
+            top: -1px;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--panel-solid);
+        }
+
+        html[data-theme="dark"] .theme-icon::before {
+            top: 3px;
+            left: 3px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--pink);
+        }
+
+        html[data-theme="dark"] .theme-icon::after {
+            top: 0;
+            left: 8px;
+            width: 2px;
+            height: 16px;
+            border-radius: 2px;
+            background: var(--pink);
+            box-shadow: -7px 7px 0 -0.2px var(--pink),
+                        7px 7px 0 -0.2px var(--pink);
+            transform: rotate(45deg);
         }
 
         .hero {
@@ -215,8 +269,8 @@
             margin: 0 0 24px;
             color: var(--accent);
             font-family: var(--script);
-            font-size: 1.65rem;
-            font-weight: 600;
+            font-size: 1.9rem;
+            font-weight: 400;
             line-height: 1.2;
         }
 
@@ -300,7 +354,8 @@
             margin-top: 25px;
             color: var(--muted);
             font-family: var(--script);
-            font-size: 1.25rem;
+            font-size: 1.55rem;
+            line-height: 1.4;
         }
 
         .profile-card {
@@ -363,15 +418,15 @@
         .section-kicker,
         .focus-index {
             font-family: var(--script);
-            font-size: 1.15rem;
-            font-weight: 600;
-            line-height: 1.3;
+            font-size: 1.45rem;
+            font-weight: 400;
+            line-height: 1.35;
         }
 
         .panel-label {
             margin-bottom: 10px;
             color: var(--green);
-            font-size: 1.35rem;
+            font-size: 1.7rem;
         }
 
         .profile-bio {
@@ -422,7 +477,7 @@
         .section-kicker {
             margin-bottom: 10px;
             color: var(--accent);
-            font-size: 1.4rem;
+            font-size: 1.8rem;
         }
 
         .section-heading h2 {
@@ -475,16 +530,62 @@
             width: 44px;
             height: 44px;
             place-items: center;
+            border: 1px solid var(--border);
             border-radius: 15px;
             background: var(--tag-bg);
             color: var(--tag-text);
-            font-family: var(--serif);
-            font-size: 1.35rem;
+        }
+
+        .project-icon::before {
+            display: block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid currentColor;
+            border-radius: 4px;
+            content: "";
+            transform: rotate(45deg);
+        }
+
+        .project-card:nth-child(2) .project-icon::before {
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px var(--tag-bg), 0 0 0 4px currentColor;
+        }
+
+        .project-card:nth-child(3) .project-icon::before {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            box-shadow: inset 0 0 0 3px var(--tag-bg);
+        }
+
+        .project-card:nth-child(4) .project-icon::before {
+            width: 17px;
+            height: 2px;
+            border: none;
+            border-radius: 2px;
+            background: currentColor;
+            box-shadow: 0 -5px 0 currentColor, 0 5px 0 currentColor;
+            transform: rotate(-45deg);
+        }
+
+        .project-card:nth-child(5) .project-icon::before {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            transform: none;
+        }
+
+        .project-card:nth-child(6) .project-icon::before {
+            width: 10px;
+            height: 10px;
+            border-width: 2px 2px 0 0;
+            border-radius: 0;
+            transform: rotate(45deg);
         }
 
         .card-number {
             color: var(--blue);
-            font-size: 1.15rem;
+            font-size: 1.35rem;
         }
 
         .project-card h3 {
@@ -514,7 +615,7 @@
             border-radius: 999px;
             background: var(--tag-bg);
             color: var(--tag-text);
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
 
         .project-link {
@@ -525,6 +626,18 @@
             color: var(--accent);
             font-size: 0.82rem;
             font-weight: 600;
+        }
+
+        .project-link::after,
+        .button[href^="https://"]::after {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            flex-shrink: 0;
+            border-top: 1.5px solid currentColor;
+            border-right: 1.5px solid currentColor;
+            content: "";
+            transform: translateY(-1px) rotate(45deg);
         }
 
         .project-link:hover {
@@ -549,7 +662,7 @@
             display: block;
             margin-bottom: 20px;
             color: var(--green);
-            font-size: 1.3rem;
+            font-size: 1.6rem;
         }
 
         .focus-card h3 {
@@ -663,7 +776,7 @@
             display: block;
             margin-bottom: 9px;
             color: var(--accent);
-            font-size: 1.1rem;
+            font-size: 1.4rem;
         }
 
         .timeline-item p {
@@ -695,8 +808,8 @@
             flex-shrink: 0;
             color: var(--accent);
             font-family: var(--script);
-            font-size: 1.3rem;
-            font-weight: 600;
+            font-size: 1.8rem;
+            font-weight: 400;
         }
 
         .contact-section {
@@ -950,10 +1063,10 @@
                 <a href="#projects">Projects</a>
                 <a href="#about">About</a>
                 <a href="#experience">Experience</a>
-                <a class="nav-cv" href="https://docs.google.com/document/d/1wUymt429q0q3QRHQf2ID2iVgRGKzdBt3h09xMNQNkRo/mobilebasic" target="_blank" rel="noopener noreferrer">CV ↗</a>
+                <a class="nav-cv" href="https://docs.google.com/document/d/1wUymt429q0q3QRHQf2ID2iVgRGKzdBt3h09xMNQNkRo/mobilebasic" target="_blank" rel="noopener noreferrer">CV</a>
 
                 <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
-                    <span id="themeIcon" aria-hidden="true">☾</span>
+                    <span class="theme-icon" id="themeIcon" aria-hidden="true"></span>
                     <span id="themeLabel">Dark mode</span>
                 </button>
             </div>
@@ -975,7 +1088,7 @@
                 </p>
 
                 <div class="hero-actions">
-                    <a class="button button-primary" href="#projects">Explore my work ↗</a>
+                    <a class="button button-primary" href="#projects">Explore my work</a>
                     <a class="button button-secondary" href="https://docs.google.com/document/d/1wUymt429q0q3QRHQf2ID2iVgRGKzdBt3h09xMNQNkRo/mobilebasic" target="_blank" rel="noopener noreferrer">View my CV</a>
                 </div>
 
@@ -1019,7 +1132,7 @@
                     </div>
                     <div class="detail-row">
                         <span>GitHub</span>
-                        <span><a href="https://github.com/lunjich" target="_blank" rel="noopener noreferrer">lunjich ↗</a></span>
+                        <span><a href="https://github.com/lunjich" target="_blank" rel="noopener noreferrer">lunjich</a></span>
                     </div>
                 </div>
             </aside>
@@ -1040,7 +1153,7 @@
             <div class="projects-grid">
                 <article class="project-card">
                     <div class="project-card-top">
-                        <span class="project-icon" aria-hidden="true">~</span>
+                        <span class="project-icon" aria-hidden="true"></span>
                         <span class="card-number">01 / DATA</span>
                     </div>
                     <h3>Flood Tracker</h3>
@@ -1053,12 +1166,12 @@
                         <span class="tag">APIs</span>
                         <span class="tag">Environmental Data</span>
                     </div>
-                    <a class="project-link" href="https://github.com/lunjich/flood_tracker" target="_blank" rel="noopener noreferrer">Explore repository ↗</a>
+                    <a class="project-link" href="https://github.com/lunjich/flood_tracker" target="_blank" rel="noopener noreferrer">Explore repository</a>
                 </article>
 
                 <article class="project-card">
                     <div class="project-card-top">
-                        <span class="project-icon" aria-hidden="true">+</span>
+                        <span class="project-icon" aria-hidden="true"></span>
                         <span class="card-number">02 / MONITORING</span>
                     </div>
                     <h3>Earthquake Alert Japan</h3>
@@ -1071,12 +1184,12 @@
                         <span class="tag">USGS API</span>
                         <span class="tag">Alerts</span>
                     </div>
-                    <a class="project-link" href="https://github.com/lunjich/earthquake_alert_japan" target="_blank" rel="noopener noreferrer">Explore repository ↗</a>
+                    <a class="project-link" href="https://github.com/lunjich/earthquake_alert_japan" target="_blank" rel="noopener noreferrer">Explore repository</a>
                 </article>
 
                 <article class="project-card">
                     <div class="project-card-top">
-                        <span class="project-icon" aria-hidden="true">✳</span>
+                        <span class="project-icon" aria-hidden="true"></span>
                         <span class="card-number">03 / DISCOVERY</span>
                     </div>
                     <h3>Mood to Read</h3>
@@ -1089,12 +1202,12 @@
                         <span class="tag">Express</span>
                         <span class="tag">MySQL</span>
                     </div>
-                    <a class="project-link" href="https://github.com/lunjich/mood-to-read" target="_blank" rel="noopener noreferrer">Explore repository ↗</a>
+                    <a class="project-link" href="https://github.com/lunjich/mood-to-read" target="_blank" rel="noopener noreferrer">Explore repository</a>
                 </article>
 
                 <article class="project-card">
                     <div class="project-card-top">
-                        <span class="project-icon" aria-hidden="true">/</span>
+                        <span class="project-icon" aria-hidden="true"></span>
                         <span class="card-number">04 / AUTOMATION</span>
                     </div>
                     <h3>My DNS Ad Blocker</h3>
@@ -1107,12 +1220,12 @@
                         <span class="tag">DNS</span>
                         <span class="tag">Networking</span>
                     </div>
-                    <a class="project-link" href="https://github.com/lunjich/my-dns-adblocker" target="_blank" rel="noopener noreferrer">Explore repository ↗</a>
+                    <a class="project-link" href="https://github.com/lunjich/my-dns-adblocker" target="_blank" rel="noopener noreferrer">Explore repository</a>
                 </article>
 
                 <article class="project-card">
                     <div class="project-card-top">
-                        <span class="project-icon" aria-hidden="true">○</span>
+                        <span class="project-icon" aria-hidden="true"></span>
                         <span class="card-number">05 / PRODUCTIVITY</span>
                     </div>
                     <h3>What's Left</h3>
@@ -1124,12 +1237,12 @@
                         <span class="tag">Productivity</span>
                         <span class="tag">Software Development</span>
                     </div>
-                    <a class="project-link" href="https://github.com/lunjich/whatsleft" target="_blank" rel="noopener noreferrer">Explore repository ↗</a>
+                    <a class="project-link" href="https://github.com/lunjich/whatsleft" target="_blank" rel="noopener noreferrer">Explore repository</a>
                 </article>
 
                 <article class="project-card">
                     <div class="project-card-top">
-                        <span class="project-icon" aria-hidden="true">↗</span>
+                        <span class="project-icon" aria-hidden="true"></span>
                         <span class="card-number">06 / AUTOMATION</span>
                     </div>
                     <h3>ReminderBot</h3>
@@ -1142,13 +1255,13 @@
                         <span class="tag">SQLite</span>
                         <span class="tag">Messaging APIs</span>
                     </div>
-                    <a class="project-link" href="https://github.com/lunjich/reminderbot" target="_blank" rel="noopener noreferrer">Explore repository ↗</a>
+                    <a class="project-link" href="https://github.com/lunjich/reminderbot" target="_blank" rel="noopener noreferrer">Explore repository</a>
                 </article>
             </div>
 
             <p class="tiny-note">
                 More experiments live on
-                <a class="project-link" href="https://github.com/lunjich" target="_blank" rel="noopener noreferrer">my GitHub ↗</a>.
+                <a class="project-link" href="https://github.com/lunjich" target="_blank" rel="noopener noreferrer">my GitHub</a>.
             </p>
         </section>
 
@@ -1219,7 +1332,7 @@
                         building projects that demonstrate what I can do.
                     </p>
 
-                    <a class="button button-secondary" href="https://docs.google.com/document/d/1wUymt429q0q3QRHQf2ID2iVgRGKzdBt3h09xMNQNkRo/mobilebasic" target="_blank" rel="noopener noreferrer">Read my CV ↗</a>
+                    <a class="button button-secondary" href="https://docs.google.com/document/d/1wUymt429q0q3QRHQf2ID2iVgRGKzdBt3h09xMNQNkRo/mobilebasic" target="_blank" rel="noopener noreferrer">Read my CV</a>
                 </div>
 
                 <div class="about-panels">
@@ -1311,9 +1424,9 @@
                 </p>
 
                 <div class="contact-actions">
-                    <a class="button button-primary" href="mailto:chandipolunji@gmail.com">Email me ↗</a>
-                    <a class="button button-secondary" href="https://www.linkedin.com/in/ulunjichandipo/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-                    <a class="button button-secondary" href="https://github.com/lunjich" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                    <a class="button button-primary" href="mailto:chandipolunji@gmail.com">Email me</a>
+                    <a class="button button-secondary" href="https://www.linkedin.com/in/ulunjichandipo/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a class="button button-secondary" href="https://github.com/lunjich" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
 
                 <a class="contact-email" href="mailto:chandipolunji@gmail.com">chandipolunji@gmail.com</a>
@@ -1337,7 +1450,6 @@
         const root = document.documentElement;
         const themeToggle = document.getElementById("themeToggle");
         const themeLabel = document.getElementById("themeLabel");
-        const themeIcon = document.getElementById("themeIcon");
         const themeColor = document.querySelector('meta[name="theme-color"]');
 
         function applyTheme(theme) {
@@ -1346,7 +1458,6 @@
             const isDark = theme === "dark";
 
             themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
-            themeIcon.textContent = isDark ? "☀" : "☾";
             themeToggle.setAttribute("aria-pressed", String(isDark));
             themeToggle.setAttribute(
                 "aria-label",
